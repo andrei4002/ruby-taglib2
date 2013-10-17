@@ -1,12 +1,12 @@
 require 'mkmf'
 
 # We need C++, not C, because Taglib is in C++
-CONFIG['CC'] = 'g++'
-CONFIG['CPP'].sub!(CONFIG['CPP'], 'g++ -E')
-CONFIG['LDSHARED'].sub!(CONFIG['CC'], 'g++')
+CONFIG['CC'] = 'g++-4.2'
+CONFIG['CPP'].sub!(CONFIG['CPP'], 'g++-4.2 -E')
+CONFIG['LDSHARED'].sub!(CONFIG['CC'], 'g++-4.2')
 
-RbConfig::CONFIG['CC'] = 'g++'
-RbConfig::CONFIG['CC'] = 'g++ -E'
+RbConfig::CONFIG['CC'] = 'g++-4.2'
+RbConfig::CONFIG['CC'] = 'g++-4.2 -E'
 
 # taglib-config does not implement libs-only-l, so we copy and paste pkg_config
 # from mkmf then remove the call to taglib-config --libs-only-l
